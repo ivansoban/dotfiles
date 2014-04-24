@@ -1,0 +1,168 @@
+" .vimrc
+
+" !silent is used to suppress error messages if the config line
+" references plugins/colorschemes that might be missing
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" VCS
+Bundle 'tpope/vim-fugitive'
+
+" System
+Bundle 'vim-scripts/Gist.vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-surround'
+Bundle 'scrooloose/syntastic'
+Bundle 'luochen1990/rainbow'
+Bundle 'mhinz/vim-signify'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList          - list configured plugins
+" :PluginInstall(!)    - install (update) plugins
+" :PluginSearch(!) foo - search (or refresh cache first) for foo
+" :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+if has("autocmd")
+    " Load files for specific filetypes
+    filetype on
+    filetype indent on
+    filetype plugin on
+
+    " Languages with specific tabs/space requirements
+    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    " Automatically strip trailing whitespace on file save
+    autocmd BufWritePre *.css,*.html,*.js,*.json,*.md,*.php,*.py,*.rb,*.scss,*.sh,*.txt :call StripTrailingWhitespace()
+endif
+
+if has("syntax")
+    " Enable syntax highlighting
+    syntax enable
+    " Set 256 color terminal support
+    set t_Co=256
+    " Set light background
+    set background=light
+    " Set colorscheme
+    silent! colorscheme desertedocean
+endif
+
+if has("cmdline_info")
+    " Show the cursor line and column number
+    set ruler
+    " Show partial commands in status line
+    set showcmd
+    " Show whether in insert or replace mode
+    set showmode
+endif
+
+if has('statusline')
+    " Always show status line
+    set laststatus=2
+    " Broken down into easily includeable segments
+    " Filename
+    set statusline=%<%f\
+    " Options
+    set statusline+=%w%h%m%r
+    " Current dir
+    set statusline+=\ [%{getcwd()}]
+    " Right aligned file nav info
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+endif
+
+if has("wildmenu")
+    " Show a list of possible completions
+    set wildmenu
+    " Tab autocomplete longest possible part of a string, then list
+    set wildmode=longest,list
+    if has ("wildignore")
+        set wildignore+=*.a,*.o
+        set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png
+        set wildignore+=.DS_Store,.git,.hg,.svn
+        set wildignore+=*~,*.swp,*.tmp
+    endif
+endif
+
+if has("extra_search")
+    " Highlight searches [use :noh to clear]
+    set hlsearch
+    " Highlight dynamically as pattern is typed
+    set incsearch
+    " Ignore case of searches...
+    set ignorecase
+    " ...unless has mixed case
+    set smartcase
+endif
+
+" Change mapleader
+let mapleader=","
+
+" Backspace through everything in INSERT mode
+set backspace=indent,eol,start
+" Optimize for fast terminal connections
+set ttyfast
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
+
+" Use 4 spaces for indentation
+set shiftwidth=4
+" Use 4 spaces for soft tab
+set softtabstop=4
+" Use 4 spaces for tab
+set tabstop=4
+" Expand tab to spaces
+set expandtab
+" Enable line numbers
+" set number
+" Highlight current line
+"set cursorline
+" Increase default number of lines
+"set lines=40
+" Start scrolling three lines before the horizontal window border
+set scrolloff=3
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+
+" Show 'invisible' characters
+set list
+" Set characters used to indicate 'invisible' characters
+set listchars=tab:▸.
+set listchars+=trail:·
+set listchars+=nbsp:_
+
+" Centralize backups, swapfiles and undo history
+set backupdir=$HOME/.vim/backups
+set directory=$HOME/.vim/swaps
+if exists("&undodir")
+    set undodir=$HOME/.vim/undo
+endif
+set viminfo+=n$HOME/.vim/.viminfo
+
+" Load local machine settings if they exist
+if filereadable("$HOME/.vimrc-local")
+    source $HOME/.vimrc.local
+endif
+
+" Strip trailing whitespace (,$)
+noremap <leader>$ :call StripTrailingWhitespace()<CR>
+
+" Faster viewport scrolling (3 lines at a time)
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+vnoremap <C-e> 3<C-e>
+vnoremap <C-y> 3<C-y>

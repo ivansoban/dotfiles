@@ -1,0 +1,14 @@
+Host *
+	Protocol 2,1
+	PubkeyAuthentication yes
+	RSAAuthentication yes
+	PasswordAuthentication yes
+	PreferredAuthentications publickey,password,keyboard-interactive
+	ForwardAgent yes
+	ForwardX11 no
+	ServerAliveCountMax 3
+	ServerAliveInterval 600
+
+Host dmtscm dmtscm.turner.com
+	Hostname dmtscm
+	Compression yes

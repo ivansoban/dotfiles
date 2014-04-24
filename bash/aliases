@@ -1,0 +1,17 @@
+# aliases
+
+# navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ~="cd ~"
+
+
+# ls variations
+# long form in color
+alias l="ls -lG"
+
+# long form in color ordered by last modified
+alias lt="ls -tlG"
+
+# long form, in color, showing all files
+alias la="ls -laG"

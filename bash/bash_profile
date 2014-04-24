@@ -1,0 +1,34 @@
+# bash_profile
+
+LOC=/Users/ivansoban/dev/dotfiles
+
+sourcefiles=(
+    $LOC/bash/exports
+    $LOC/bash/aliases
+    $LOC/bash/bash_prompt
+    $LOC/git/git-autocompletion.sh
+)
+
+for file in ${sourcefiles[@]}; do
+    source $file
+done
+
+# neverending bash history
+shopt -s histappend
+
+# set default file permissions
+umask 002
+
+# MacPorts
+PATH=$PATH:/opt/local/bin
+
+# Haskell
+export PATH="$HOME/Library/Haskell/bin:$PATH"
+
+# LS colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Go
+export GOPATH=$HOME/dev/gocode
+export PATH=$PATH:$GOPATH/bin

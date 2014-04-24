@@ -1,0 +1,10 @@
+vim/.viminfo
+vim/.netrwhist
+vim/backups/*
+vim/colors/*
+vim/doc/*
+vim/plugin/*
+vim/swaps/*
+vim/syntax/*
+vim/undo/*
+vim/bundle/*

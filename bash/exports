@@ -1,0 +1,19 @@
+# exports
+
+# set vim as default editor
+export EDITOR="vim"
+export CVSEDITOR="vim"
+export SVN_EDITOR="vim"
+
+# don't clear screen after leaving man page
+export MANPAGER="less -X"
+
+# make bash history better
+export HISTSIZE=30000
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+export HISTIGNORE="&:l:ls:lt:la:exit:history"
+
+# update PATH
+[ -d "$HOME/bin" ] && PATH="$PATH:$HOME/bin";
+export PATH
