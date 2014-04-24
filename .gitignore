@@ -8,3 +8,5 @@ vim/swaps/*
 vim/syntax/*
 vim/undo/*
 vim/bundle/*
+
+*.swp
