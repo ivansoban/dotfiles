@@ -32,6 +32,8 @@ ln -fsv $(pwd)/bash/inputrc ~/.inputrc
 echo
 echo "[INFO] Installing Other Packages"
 
+git submodule update --init --recursive
+
 echo
 echo "[INFO] Installing oh-my-zsh"
 
