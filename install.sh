@@ -3,7 +3,18 @@
 echo "[INFO] Backing up files"
 
 mkdir -v ~/dotfiles_backup
-mv -fv ~/.* ~/dotfiles_backup
+cp -RLfv ~/.bash_profile ~/dotfiles_backup
+cp -RLfv ~/.bashrc ~/dotfiles_backup
+cp -RLfv ~/.git-autocompletion.sh ~/dotfiles_backup
+cp -RLfv ~/.gitattributes ~/dotfiles_backup
+cp -Rlfv ~/.gitconfig ~/dotfiles_backup
+cp -RLfv ~/.gitignore ~/dotfiles_backup
+cp -RLfv ~/.screenrc ~/dotfiles_backup
+cp -RLfv ~/.ssh/config ~/dotfiles_backup
+cp -RLfv ~/.inputrc ~/dotfiles_backup
+cp -RLfv ~/.muttrc ~/dotfiles_backup
+cp -RLfv ~/.zshrc ~/dotfiles_backup
+cp -RLfv ~/.vimrc ~/dotfiles_backup
 
 echo
 echo "[INFO] Symlinking environment"
