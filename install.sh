@@ -37,13 +37,15 @@ git submodule update --init --recursive
 echo
 echo "[INFO] Installing oh-my-zsh"
 
+rm -rf ~/.oh-my-zsh
 ln -Fsv $(pwd)/oh-my-zsh/ ~/.oh-my-zsh
-ln -Fsv $(pwd)/zsh/zshrc ~/.zshrc
-chsh -s /bin/zsh
+ln -fsv $(pwd)/zsh/zshrc ~/.zshrc
+chsh -s /bin/zsh || chsh -s /usr/bin/zsh
 
 echo
 echo "[INFO] Installing vim and extras"
 
+rm -rf ~/.vim
 ln -Fsv $(pwd)/vim/ ~/.vim
 ln -fsv ~/.vim/vimrc ~/.vimrc
 vim +PluginInstall +qall
