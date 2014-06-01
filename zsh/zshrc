@@ -59,6 +59,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export ANDROID_HOME=/opt/local/share/java/android-sdk-macosx/
 export PATH=$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/:$PATH
 
+# Haskell
+export PATH=$HOME/.cabal/bin:$PATH
+
 # Script for ensuring only one instance of gpg-agent is running
 # # and if there is not one, start an instance of gpg-agent.
 if test -f $HOME/.gpg-agent-info && kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
