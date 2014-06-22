@@ -21,8 +21,8 @@ Bundle 'vim-scripts/Gist.vim'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/syntastic'
-Bundle 'luochen1990/rainbow'
 Bundle 'mhinz/vim-signify'
+Bundle 'Lokaltog/vim-powerline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -127,12 +127,6 @@ set softtabstop=4
 set tabstop=4
 " Expand tab to spaces
 set expandtab
-" Enable line numbers
-" set number
-" Highlight current line
-"set cursorline
-" Increase default number of lines
-"set lines=40
 " Start scrolling three lines before the horizontal window border
 set scrolloff=3
 " Don’t reset cursor to start of line when moving around.
