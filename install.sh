@@ -30,15 +30,11 @@ ln -fsv $(pwd)/ssh/config ~/.ssh/config
 ln -fsv $(pwd)/bash/inputrc ~/.inputrc
 
 echo
-echo "[INFO] Installing Other Packages"
-
-git submodule update --init --recursive
-
-echo
 echo "[INFO] Installing oh-my-zsh"
 
 rm -rf ~/.oh-my-zsh
-ln -Fsv $(pwd)/oh-my-zsh/ ~/.oh-my-zsh
+git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+
 ln -fsv $(pwd)/zsh/zshrc ~/.zshrc
 chsh -s /bin/zsh || chsh -s /usr/bin/zsh
 
@@ -46,6 +42,23 @@ echo
 echo "[INFO] Installing vim and extras"
 
 rm -rf ~/.vim
+rm -rf ~/.vim/backups ~/.vim/bundle ~/.vim/swaps ~/.vim/undo
+
 ln -Fsv $(pwd)/vim/ ~/.vim
 ln -fsv ~/.vim/vimrc ~/.vimrc
+
+mkdir ~/.vim/backups
+mkdir ~/.vim/swaps
+mkdir ~/.vim/undo
+mkdir ~/.vim/bundle
+
+git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
+
 vim +PluginInstall +qall
+
+if [ "$(uname)" == "Darwin" ]; then
+    echo "bash osx"
+fi
