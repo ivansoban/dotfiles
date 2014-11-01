@@ -52,6 +52,9 @@ source $ZSH/oh-my-zsh.sh
 # Enable vim mode!
 bindkey -v
 
+# Allowing reverse search
+bindkey "^R" history-incremental-search-backward
+
 # MacPorts
 PATH=/opt/local/bin:$PATH
 
