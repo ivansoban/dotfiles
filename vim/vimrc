@@ -24,9 +24,16 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'Shougo/vimproc.vim'
 
-" Language Specific
+"" Language Specific
+" Scala
 Bundle 'derekwyatt/vim-scala'
+
+" Haskell
+Bundle 'dag/vim2hs'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'eagletmt/ghcmod-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

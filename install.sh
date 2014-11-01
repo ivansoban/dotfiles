@@ -41,8 +41,8 @@ chsh -s /bin/zsh || chsh -s /usr/bin/zsh
 echo
 echo "[INFO] Installing vim and extras"
 
-rm -rf ~/.vim
 rm -rf ~/.vim/backups ~/.vim/bundle ~/.vim/swaps ~/.vim/undo
+rm -rf ~/.vim
 
 ln -Fsv $(pwd)/vim/ ~/.vim
 ln -fsv ~/.vim/vimrc ~/.vimrc
@@ -54,10 +54,12 @@ mkdir ~/.vim/bundle
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+vim +PluginInstall +qall
+
 cd ~/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
-
-vim +PluginInstall +qall
+cd ~/.vim/bundle/vimproc.vim
+make
 
 if [ "$(uname)" == "Darwin" ]; then
     echo "bash osx"

@@ -37,7 +37,7 @@ ZSH_THEME="ys"
 # much faster.
 # DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment following line if you want to  shown in the command execution time stamp 
+# Uncomment following line if you want to  shown in the command execution time stamp
 # in the history command output. The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|
 # yyyy-mm-dd
 # HIST_STAMPS="mm/dd/yyyy"
@@ -49,6 +49,9 @@ plugins=(git cabal macports terminalapp brew sbt)
 
 source $ZSH/oh-my-zsh.sh
 
+# Enable vim mode!
+bindkey -v
+
 # MacPorts
 PATH=/opt/local/bin:$PATH
 
@@ -56,8 +59,8 @@ PATH=/opt/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Android
-export ANDROID_HOME=/opt/local/share/java/android-sdk-macosx/
-export PATH=$ANDROID_HOME/tools/:$ANDROID_HOME/platform-tools/:$PATH
+export ANDROID_HOME=/opt/local/share/java/android-sdk-macosx
+export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # Haskell
 export PATH=$HOME/.cabal/bin:$PATH
