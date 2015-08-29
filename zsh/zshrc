@@ -62,8 +62,9 @@ PATH=/opt/local/bin:$PATH
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Android
-export ANDROID_HOME=/opt/local/share/java/android-sdk-macosx
+export ANDROID_HOME=/usr/local/opt/android-sdk
 export PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Haskell
 export PATH=$HOME/.cabal/bin:$PATH
